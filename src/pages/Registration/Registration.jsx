@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth'
-import app from '../../firebase.config';
+import app from '../../Firebase/firebase.config';
 
 const Registration = () => {
 const auth = getAuth(app);
