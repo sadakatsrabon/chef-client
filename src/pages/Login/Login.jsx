@@ -2,8 +2,14 @@ import React from 'react';
 
 const Login = () => {
     return (
-        <div>
-            <h2>Please drop the expectec information to login</h2>
+        <div className='container'>
+            <form>
+                <input className='' type="email" name="email" id="" placeholder='Drop Your Email Here' />
+                <input className='' type="password" name="password" id="" placeholder='Type Only The correct password' />
+            </form>
+            <div className=''>
+
+            </div>
         </div>
     );
 };
