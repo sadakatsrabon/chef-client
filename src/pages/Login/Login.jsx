@@ -1,60 +1,77 @@
-// import React from 'react';
-
-// const Login = () => {
-
-//     const handleLogin = event => {
-//         event.preventDefault();
-
-//         const form = event.target;
-//         // console.log(form);
-//         // const email = form.email;
-//         const password = form.password;
-//         console.log(password)
-
-//     }
-//     return (
-//         <div className='form-container d-flex flex-column'>
-//             <h2 className='form-title'>Login</h2>
-
-//             <form onBlur={handleLogin} className='d-flex flex-column'>
-//                 <input type="email" name="email" id="" placeholder='Drop Your Email Here' required />
-//                 <input type="password" name="password" id="" placeholder='Type Only The correct password' required />
-//             </form>
-
-//             <button type='submit' className='btn btn-primary'>Login</button>
-//             <div className=''>
-
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Login;
-
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import app from '../../Firebase/firebase.config';
 
 const Login = () => {
     // const [email, setEmail] = useState([]);
+    const [user, setUser] = useState([]);
+    const auth = getAuth(app);
+
+    const [error, setError] = useState([]);
+
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const handleGoogleSignin = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+    const handleGithubSignin = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loginuser = result.user;
+                console.log(loginuser)
+                setUser(loginuser);
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
 
     const handleLogin = event => {
         event.preventDefault();
-        
+
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         // console.log(email, password);
 
-        
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+            })
+            .catch(error => {
+                console.log(error.message);
+                return;
+            })
+
+        setError('')
+        if (password.length < 6) {
+            setError('password must be more than 6 characters')
+            return;
+        }
+
     }
     return (
-        <div className='mt-5'>
+        <div className='container mt-5'>
             <form className='d-flex flex-column p-5' onSubmit={handleLogin}>
                 <input className='' type="email" name="email" id="" placeholder='Valid Email' />
                 <input className='' type="password" name="password" id="" placeholder='Password' />
                 <button>Login</button>
                 <Link to="/registration"><p>New To Food Loader?</p></Link>
+                <p>{error}</p>
             </form>
+            <div>
+                <button onClick={handleGoogleSignin}>Google Login</button>
+                <button onClick={handleGithubSignin}>Github Login</button>
+            </div>
         </div>
     );
 };

@@ -8,6 +8,7 @@ const auth = getAuth(app);
 
     // const [email, setEmail] = useState([]);
     const [error, setError] = useState([]);
+    
 
     const handleSignup = event => {
         event.preventDefault();
@@ -15,13 +16,14 @@ const auth = getAuth(app);
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
+        setError('')
         // creat user in firebase
 
         createUserWithEmailAndPassword(auth, email, password)
         .then(result =>{
-            const loggedUser =result.user;
-            console.log(loggedUser)
+            const user =result.user;
+            console.log(user)
         })
         .catch(error => {
             // console.error(error.message)
@@ -45,7 +47,7 @@ const auth = getAuth(app);
                 <input className='' type="password" name="password" id="" placeholder='Set new password' required />
                 <button>Signup</button>
                 <Link to="/login"><p>Already Have An Account?</p></Link>
-            <p>{error}</p>
+            <p className='text-danger'>{error}</p>
             </form>
         </div>
     );
