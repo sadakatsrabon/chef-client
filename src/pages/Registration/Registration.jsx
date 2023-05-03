@@ -24,7 +24,10 @@ const auth = getAuth(app);
             console.log(loggedUser)
         })
         .catch(error => {
-            console.error(error)
+            // console.error(error.message)
+            const errors = error.message;
+            setError(errors);
+            <h2>Error = {error}</h2>
         })
 
         if(password.length <6 ) {
@@ -36,12 +39,13 @@ const auth = getAuth(app);
     return (
         <div className='mt-5'>
             <form className='d-flex flex-column p-5' onSubmit={handleSignup}>
-                <input className='' type="text" name="Name" placeholder='Your name' />
-                <input className='' type="email" name="email" id="" placeholder='Input A Valid Email' />
-                <p>{error}</p>
-                <input className='' type="password" name="password" id="" placeholder='Set new password' />
+                <input className='' type="text" name="Name" placeholder='Your name' required />
+                <input className='' type="email" name="email" id="" placeholder='Input A Valid Email' required />
+                
+                <input className='' type="password" name="password" id="" placeholder='Set new password' required />
                 <button>Signup</button>
                 <Link to="/login"><p>Already Have An Account?</p></Link>
+            <p>{error}</p>
             </form>
         </div>
     );
