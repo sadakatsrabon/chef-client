@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth'
+import app from '../../firebase.config';
 
 const Registration = () => {
+const auth = getAuth(app);
+
     // const [email, setEmail] = useState([]);
     const [error, setError] = useState([]);
 
@@ -12,6 +16,16 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        // creat user in firebase
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(result =>{
+            const loggedUser =result.user;
+            console.log(loggedUser)
+        })
+        .catch(error => {
+            console.error(error)
+        })
 
         if(password.length <6 ) {
             setError('password must be more than 6 characters')
