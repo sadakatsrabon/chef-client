@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className='container bg-secondary-subtle'>
             <img width="150" src="../../../../public/GFGFGFG.jpg" alt="" />
-            <p>Feel The Flavour, That Is Came From Bangali Tradition And Must Love That</p>
+            <p className='bg-slate-700'>Feel The Flavour, That Is Came From Bangali Tradition And Must Love That</p>
             <p>Our Special BD Chefs Are Ready For You</p>
             <p>Test BD Food</p>
             <div>

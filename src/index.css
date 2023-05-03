@@ -67,3 +67,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+root{
+  font-family: 'Lato', sans-serif;
+}
