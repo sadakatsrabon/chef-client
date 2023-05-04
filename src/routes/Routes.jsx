@@ -8,6 +8,7 @@ import ContactUs from "../pages/Contact/ContactUs";
 import Error from "../pages/Error/Error";
 import Cart from "../pages/Home/Cart/Cart";
 import ChefRecipe from "../pages/Chef_recipies/ChefRecipe";
+import Details from "../pages/Details/Details";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: 'chef_recipes',
                 element: <ChefRecipe></ChefRecipe>
+            },
+            {
+                path: 'details',
+                element: <Details></Details>
             }
         ]
     }

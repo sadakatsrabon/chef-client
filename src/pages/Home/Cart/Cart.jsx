@@ -29,7 +29,7 @@ const Cart = () => {
                                     <br />
                                     Likes: {chef.likes}
                                 </Card.Text>
-                                <Link to="chef_recipes"><Button variant="primary">View Recipes</Button></Link>
+                                <Link to="details"><Button variant="primary">Details</Button></Link>
                             </Card.Body>
                         </Card>
                     </Col>
