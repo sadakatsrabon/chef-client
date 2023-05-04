@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Stack } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../Header/Header';
 import Cart from '../Cart/Cart';
 import { Link, useLoaderData } from 'react-router-dom';
-import { RingContext } from '../../../layouts/Main';
+
 
 const Home = () => {
-    const chefs = useContext(RingContext)
-    console.log(chefs)
     // const recipes = useLoaderData();
     // console.log(recipes);
     return (
