@@ -6,6 +6,8 @@ import Registration from "../pages/Registration/Registration";
 import Blog from "../pages/Blog/Blog";
 import ContactUs from "../pages/Contact/ContactUs";
 import Error from "../pages/Error/Error";
+import Cart from "../pages/Home/Cart/Cart";
+import ChefRecipe from "../pages/Chef_recipies/ChefRecipe";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
             {
                 path: 'contact',
                 element: <ContactUs></ContactUs>
+            },
+            {
+                path: 'cart',
+                element: <Cart></Cart>
+            },
+            {
+                path: 'chef_recipes',
+                element: <ChefRecipe></ChefRecipe>
             }
         ]
     }
