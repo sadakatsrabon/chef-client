@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Stack } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../Header/Header';
 import Cart from '../Cart/Cart';
 import { Link, useLoaderData } from 'react-router-dom';
-
+import { RingContext } from '../../../layouts/Main';
 
 const Home = () => {
+    const chefs = useContext(RingContext)
+    console.log(chefs)
     // const recipes = useLoaderData();
     // console.log(recipes);
     return (
@@ -47,16 +49,16 @@ const Home = () => {
                             <h2>Returns:</h2>
                             <p>You can return a product within 10 minutes.</p>
                             <h6 className='text-center mt-4'>This website is credited only to Programming Hero.
-                        </h6>
+                            </h6>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://th.bing.com/th/id/R.490b6e4b05463460ff7063a9a330f4ec?rik=hxyMLKQN8WYv0w&riu=http%3a%2f%2fgetdrawings.com%2fimages%2ffood-drawing-images-16.jpg&ehk=c4UpqPnP9trmsVNMSyWNP7ZoUJd3nb1WlAXlSTdyIy8%3d&risl=&pid=ImgRaw&r=0" className='img-fluid rounded mb-3 h-75 mt-5 pt-5'
+                            width="300"
+                            height=""
+                            alt="" />
                     </div>
                 </div>
-                <div>
-                    <img src="https://th.bing.com/th/id/R.490b6e4b05463460ff7063a9a330f4ec?rik=hxyMLKQN8WYv0w&riu=http%3a%2f%2fgetdrawings.com%2fimages%2ffood-drawing-images-16.jpg&ehk=c4UpqPnP9trmsVNMSyWNP7ZoUJd3nb1WlAXlSTdyIy8%3d&risl=&pid=ImgRaw&r=0" className='img-fluid rounded mb-3 h-75 mt-5 pt-5'
-                        width="300"
-                        height=""
-                        alt="" />
-                </div>
-        </div>
 
             </Stack >
         </div >
