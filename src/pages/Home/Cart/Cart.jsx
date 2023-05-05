@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ChefsContext } from '../../../layouts/Main';
 import { Button, Card, Col, Row } from 'react-bootstrap';
+import './cart.css';
 
 const Cart = () => {
 
@@ -19,7 +20,7 @@ const Cart = () => {
                 {chefs.map(chef =>
                     <Col key={chef.id} className="m-3">
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={chef.picture} />
+                        <Card.Img variant="top" className='image' src={chef.picture} style={{ height: '200px' }} />
                             <Card.Body>
                                 <Card.Title>{chef.name}</Card.Title>
                                 <Card.Text>
@@ -29,7 +30,7 @@ const Cart = () => {
                                     <br />
                                     Likes: {chef.likes}
                                 </Card.Text>
-                                <Link to="details"><Button variant="primary">Details</Button></Link>
+                                <Link to={`/chef/${chef.id}`}><Button variant="primary">Details</Button></Link>
                             </Card.Body>
                         </Card>
                     </Col>

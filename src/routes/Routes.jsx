@@ -7,7 +7,6 @@ import Blog from "../pages/Blog/Blog";
 import ContactUs from "../pages/Contact/ContactUs";
 import Error from "../pages/Error/Error";
 import Cart from "../pages/Home/Cart/Cart";
-import ChefRecipe from "../pages/Chef_recipies/ChefRecipe";
 import Details from "../pages/Details/Details";
 
 const router = createBrowserRouter([
@@ -41,13 +40,9 @@ const router = createBrowserRouter([
                 element: <Cart></Cart>
             },
             {
-                path: 'chef_recipes',
-                element: <ChefRecipe></ChefRecipe>
+                path: '/chef/:id',
+                element: <Details></Details>,
             },
-            {
-                path: 'details',
-                element: <Details></Details>
-            }
         ]
     }
 ])

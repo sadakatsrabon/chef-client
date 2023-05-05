@@ -9,7 +9,7 @@ const Main = () => {
     const [chefs, setChef] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/catagories')
+        fetch('https://food-loader-sadakatsrabon.vercel.app/alldata')
             .then(res => res.json())
             .then(data => setChef(data));
 

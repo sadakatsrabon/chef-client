@@ -4,7 +4,7 @@ const ChefRecipe = () => {
     const [details, setDetails] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/catagories')
+        fetch('https://food-loader-sadakatsrabon.vercel.app/alldata')
             .then(res => res.json())
             .then(data => setDetails(data));
         console.log(details);
